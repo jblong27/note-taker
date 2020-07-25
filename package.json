@@ -4,26 +4,19 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Andy Durette",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "mysql": "^2.18.1",
-    "path": "^0.12.7",
-    "uuid": "^8.2.0"
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "save": "^2.4.0",
+    "uuid": "^3.3.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jblong27/note-taker.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/jblong27/note-taker/issues"
-  },
-  "homepage": "https://github.com/jblong27/note-taker#readme"
+  "engines": {
+    "node": "12.x"
+  }
 }
