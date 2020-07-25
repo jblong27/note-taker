@@ -11,10 +11,28 @@ const app =  express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// get requests below
+// get request below
 app.get("api/notes", (req, res) => {
     fs.readFile("db/db.json", "utf8", function(err, contents) {
         var words = JSON.parse(contents);
         res.send(words);
+    });
+});
+
+// post request
+app.post("/api/notes", (req, res) => {
+    fs.readFile("db/db.json", (err, data) => {
+        if(err) throw err;
+        let json = JSON.parse(data);
+        let note = {
+            title: req.body.title,
+            text: req.body.text,
+            id: uuidv1()
+        }
+        json.push(note);
+        fs.writeFile("db/db.json", JSON.stringify(json, null, 2), (err) => {
+            if(err) throw err;
+            res.send("200");
+        });
     });
 });
