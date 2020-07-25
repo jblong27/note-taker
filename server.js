@@ -56,13 +56,16 @@ app.delete("/api/notes/:id", (req, res) => {
 });
 
 // routing
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/index.html"));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
   });
-app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-app.use(express.static(path.join(__dirname, "public")));
+  
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'notes.html'));
+  });
+  
+app.use(express.static(path.join(__dirname, 'public')));
+
 //port and listener
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, function() {
