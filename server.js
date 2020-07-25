@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const uuid = require('uuid/v4');
+const uuidv1 = require('uuid/v1');
 
 const app =  express();
 
@@ -27,7 +27,7 @@ app.post("/api/notes", (req, res) => {
         let note = {
             title: req.body.title,
             text: req.body.text,
-            id: uuid()
+            id: uuidv1()
         }
         json.push(note);
         fs.writeFile("db/db.json", JSON.stringify(json, null, 2), (err) => {
